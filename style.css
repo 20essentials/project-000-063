@@ -1,0 +1,68 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  display: grid;
+  place-content: center;
+  background-image: linear-gradient(to bottom, black, #363636)
+}
+
+.circle {
+  width: 240px;
+  height: 240px;
+  border: 1px solid transparent;
+  border-radius: 50%;
+  position: relative;
+
+  * {
+    pointer-events: none;
+  }
+
+
+  .min-circle {
+    width: 10%;
+    height: 2px;
+    border-radius: 50%;
+    background-color: red;
+    position: absolute;
+    top: 50%;
+    left: 0%;
+    transform: translate(0, -50%) rotate(calc(360deg / 120 * var(--p)));
+    transform-origin: 120px;
+    transition: 3s;
+    animation: animar .2s linear infinite;
+    animation-delay: calc(var(--p) * 50ms);
+  }
+
+  .min-circle:nth-child(even) {
+    background-color: dodgerblue;
+  }
+
+  .min-circle:nth-child(odd) {
+    background-color: springgreen;
+  }
+
+  &:hover,
+  &.fund {
+    .min-circle {
+      width: 45%;
+    }
+  }
+}
+
+@keyframes animar {
+  to {
+    background-color: magenta;
+  }
+}
