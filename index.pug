@@ -1,0 +1,15 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title Luminous Circle
+    link(rel="shortcut icon", href="assets/favicon.png", type="image/x-icon")
+    link(rel="stylesheet", href="style.css")
+  
+  body
+    .circle
+      each val in Array(121).fill(0).map((_, i) => i + 1)
+        article.min-circle(style=`--p: ${val};`)
+    
+    script(src="script.js")
